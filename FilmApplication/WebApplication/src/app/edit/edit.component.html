@@ -1,0 +1,17 @@
+<div>
+    <label for="name">Image URL: </label>
+    <input [(ngModel)]="film.imageUrl" placeholder="imageUrl">
+
+    <label for="name">Name: </label>
+    <input [(ngModel)]="film.name" placeholder="name">
+
+    <label for="name">Description: </label>
+    <input [(ngModel)]="film.description" placeholder="description">
+
+    <label for="name">Duration: </label>
+    <input [(ngModel)]="film.duration" placeholder="duration">
+    <button class="btn btn-primary btn-block" (click)="submit()">
+        Submit changes
+    </button>
+    <span *ngIf="hasError" class="badge bg-danger">Unsuccessfull update!</span>
+</div>

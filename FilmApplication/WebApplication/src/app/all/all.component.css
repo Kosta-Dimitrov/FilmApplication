@@ -1,0 +1,24 @@
+ form.solid {
+     border-style: solid;
+ }
+
+ form {
+     margin: 25px;
+ }
+
+ button {
+     margin: 25px;
+ }
+
+ div {
+     margin: 20px;
+     outline-offset: 15px;
+ }
+
+ a {
+     margin: 5px;
+ }
+
+ .card {
+     border: 1px solid black;
+ }

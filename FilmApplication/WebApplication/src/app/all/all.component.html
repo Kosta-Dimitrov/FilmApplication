@@ -1,0 +1,26 @@
+<form class="border">
+    <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Film name:</label>
+        <input type="text" class="form-control" [(ngModel)]="filter.name" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Longer than:</label>
+        <input type="text" class="form-control" [(ngModel)]="filter.minLongevity" [ngModelOptions]="{standalone: true}">
+    </div>
+    <button class="btn btn-primary" type="submit" (click)='search()'>Search</button>
+</form>
+<ul>
+    <li *ngFor="let film of films" style="list-style: none;">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{film.imageUrl}}" alt="No photo">
+            <div class="card-body">
+                <h5 class="card-title">{{film.name}}</h5>
+                <p class="card-text">{{film.description}}</p>
+                <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true"
+                    routerLink="/detail/{{film.id}}">Details</a>
+                <a *ngIf="isAdmin" class="btn btn-primary btn-lg btn-info" role="button" aria-pressed="true"
+                    routerLink="/edit/{{film.id}}">Edit</a>
+            </div>
+        </div>
+    </li>
+</ul>

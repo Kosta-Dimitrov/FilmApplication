@@ -1,0 +1,15 @@
+<ul style="list-style-type:none;">
+    <li *ngFor="let film of films">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{film.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{film.name}}</h5>
+                <p class="card-text">{{film.description}}</p>
+                <a class="btn btn-primary" routerLink="/detail/{{film.id}}">Details</a>
+            </div>
+        </div>
+        <!---<a routerLink="/detail/{{film.id}}">
+            {{film.name}}
+        </a>-->
+    </li>
+</ul>
