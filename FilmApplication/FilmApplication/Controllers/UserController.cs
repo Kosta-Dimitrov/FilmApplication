@@ -9,14 +9,12 @@ namespace FilmApplication.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private IJWTManagerRepository JWTManager;
-        private RegisterService registerService;
-        private LoginService loginService;
+        private readonly IJWTManagerRepository JWTManager;
+        private readonly RegisterService registerService;
 
-        public UserController(RegisterService registerService,LoginService loginService,IJWTManagerRepository JWTManager)
+        public UserController(RegisterService registerService,IJWTManagerRepository JWTManager)
         {
             this.registerService = registerService;
-            this.loginService = loginService;
             this.JWTManager= JWTManager;
         }
 

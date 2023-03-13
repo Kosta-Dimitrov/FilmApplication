@@ -13,8 +13,8 @@ namespace FilmApplication.Controllers
     [Route("api/[controller]")]
     public class FilmController:ControllerBase
     {
-        private FilmService filmService;
-        private FilmValidator validator;
+        private readonly FilmService filmService;
+        private readonly FilmValidator validator;
         public FilmController(FilmService filmService, FilmValidator validator)
         {
             this.filmService= filmService;

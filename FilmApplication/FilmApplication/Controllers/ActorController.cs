@@ -12,8 +12,8 @@ namespace FilmApplication.Controllers
     [Route("[controller]")]
     public class ActorController:ControllerBase
     {
-        private ActorService actorService;
-        private ActorValidator actorValidator;
+        private readonly ActorService actorService;
+        private readonly ActorValidator actorValidator;
 
         public ActorController(ActorService actorService, ActorValidator actorValidator)
         {
