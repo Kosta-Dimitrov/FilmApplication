@@ -17,5 +17,12 @@
             public const int NameMinLength = 3;
             public const int NameMaxLength = 35;
         }
+
+        public class User
+        {
+            public const int NameMinLength = 5;
+            public const int PasswordMinLength = 5;
+        }
+
     }
 }

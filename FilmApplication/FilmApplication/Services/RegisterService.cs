@@ -3,6 +3,8 @@ using FilmApplication.Services.Interfaces;
 using System;
 using System.Linq;
 
+using static FilmApplication.Validations.Constants.User;
+
 namespace FilmApplication.Services
 {
     public class RegisterService : IRegisterService
@@ -20,9 +22,9 @@ namespace FilmApplication.Services
             {
                 throw new ArgumentNullException();
             }
-            if (String.IsNullOrEmpty(model.Username) || String.IsNullOrWhiteSpace(model.Username) || model.Username.Length < 5)
+            if (String.IsNullOrEmpty(model.Username) || String.IsNullOrWhiteSpace(model.Username) || model.Username.Length < NameMinLength)
             {
-                throw new ArgumentOutOfRangeException("Username should be at least 5 symbols");
+                throw new ArgumentOutOfRangeException($"Username should be at least { NameMinLength } symbols");
             }
             if (IsRegistered(model))
             {
@@ -36,9 +38,9 @@ namespace FilmApplication.Services
             {
                 throw new ArgumentNullException();
             }
-            if (String.IsNullOrEmpty(model.Password) || String.IsNullOrWhiteSpace(model.Password) || model.Password.Length < 5)
+            if (String.IsNullOrEmpty(model.Password) || String.IsNullOrWhiteSpace(model.Password) || model.Password.Length < PasswordMinLength)
             {
-                throw new ArgumentOutOfRangeException("Password should be at least 5 symbols");
+                throw new ArgumentOutOfRangeException($"Password should be at least { PasswordMinLength } symbols");
             }
             return true;
         }
