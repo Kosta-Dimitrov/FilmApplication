@@ -1,6 +1,6 @@
 ﻿using FilmApplication.Identity;
 
-namespace FilmApplication
+namespace FilmApplication.JWT
 {
     public interface IJWTManagerRepository
     {

@@ -1,5 +1,6 @@
 ﻿using FilmApplication.Identity;
 using FilmApplication.Services;
+using FilmApplication.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,13 +8,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace FilmApplication
+namespace FilmApplication.JWT
 {
     public class JWTManagerRepository : IJWTManagerRepository
     {
         private IConfiguration iconfiguration;
-        private LoginService loginService;
-        public JWTManagerRepository(IConfiguration iconfiguration,LoginService loginService)
+        private readonly ILoginService loginService;
+        public JWTManagerRepository(IConfiguration iconfiguration, ILoginService loginService)
         {
             this.iconfiguration = iconfiguration;
             this.loginService = loginService;

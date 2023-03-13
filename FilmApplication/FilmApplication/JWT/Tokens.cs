@@ -1,4 +1,4 @@
-﻿namespace FilmApplication
+﻿namespace FilmApplication.JWT
 {
     public class Tokens
     {

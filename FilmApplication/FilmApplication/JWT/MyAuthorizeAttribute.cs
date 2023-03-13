@@ -1,10 +1,9 @@
-﻿using FilmApplication.Identity;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 
-namespace FilmApplication
+namespace FilmApplication.JWT
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class MyAuthorizeAttribute:Attribute,IAuthorizationFilter
