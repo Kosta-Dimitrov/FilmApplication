@@ -1,5 +1,6 @@
 ﻿using FilmApplication.Identity;
-using FilmApplication.Services;
+using FilmApplication.JWT;
+using FilmApplication.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,9 @@ namespace FilmApplication.Controllers
     public class UserController : ControllerBase
     {
         private readonly IJWTManagerRepository JWTManager;
-        private readonly RegisterService registerService;
+        private readonly IRegisterService registerService;
 
-        public UserController(RegisterService registerService,IJWTManagerRepository JWTManager)
+        public UserController(IRegisterService registerService,IJWTManagerRepository JWTManager)
         {
             this.registerService = registerService;
             this.JWTManager= JWTManager;

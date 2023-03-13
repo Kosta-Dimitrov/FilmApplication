@@ -1,5 +1,7 @@
-﻿using FilmApplication.Models.Actors;
+﻿using FilmApplication.JWT;
+using FilmApplication.Models.Actors;
 using FilmApplication.Services;
+using FilmApplication.Services.Interfaces;
 using FilmApplication.Validations;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +14,10 @@ namespace FilmApplication.Controllers
     [Route("[controller]")]
     public class ActorController:ControllerBase
     {
-        private readonly ActorService actorService;
+        private readonly IActorService actorService;
         private readonly ActorValidator actorValidator;
 
-        public ActorController(ActorService actorService, ActorValidator actorValidator)
+        public ActorController(IActorService actorService, ActorValidator actorValidator)
         {
             this.actorService= actorService;
             this.actorValidator= actorValidator;

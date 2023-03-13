@@ -1,6 +1,7 @@
-﻿using FilmApplication.Models.Films;
+﻿using FilmApplication.JWT;
+using FilmApplication.Models.Films;
 using FilmApplication.Models.QueryObjects;
-using FilmApplication.Services;
+using FilmApplication.Services.Interfaces;
 using FilmApplication.Validations;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -13,12 +14,12 @@ namespace FilmApplication.Controllers
     [Route("api/[controller]")]
     public class FilmController:ControllerBase
     {
-        private readonly FilmService filmService;
+        private readonly IFilmService filmService;
         private readonly FilmValidator validator;
-        public FilmController(FilmService filmService, FilmValidator validator)
+        public FilmController(IFilmService filmService, FilmValidator validator)
         {
-            this.filmService= filmService;
-            this.validator=validator;
+            this.filmService = filmService;
+            this.validator = validator;
         }
 
         [MyAuthorize]

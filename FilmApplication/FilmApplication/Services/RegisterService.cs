@@ -1,10 +1,11 @@
 ﻿using FilmApplication.Identity;
+using FilmApplication.Services.Interfaces;
 using System;
 using System.Linq;
 
 namespace FilmApplication.Services
 {
-    public class RegisterService
+    public class RegisterService : IRegisterService
     {
         private FilmContext dbContext;
 

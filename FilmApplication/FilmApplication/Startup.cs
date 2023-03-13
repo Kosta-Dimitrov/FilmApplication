@@ -1,4 +1,6 @@
+using FilmApplication.JWT;
 using FilmApplication.Services;
+using FilmApplication.Services.Interfaces;
 using FilmApplication.Validations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -51,9 +53,11 @@ namespace FilmApplication
 
 
             services.AddTransient<IJWTManagerRepository, JWTManagerRepository>();
-            services.AddTransient<LoginService>();
-            services.AddTransient<RegisterService>();
-            services.AddTransient<FilmService>();
+            services.AddTransient<IActorService, ActorService>();
+            services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IRegisterService, RegisterService>();
+            services.AddTransient<IFilmService, FilmService>();
+
             services.AddTransient<FilmValidator>();
             services.AddTransient<ActorValidator>();
 

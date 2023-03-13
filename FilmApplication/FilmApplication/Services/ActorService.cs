@@ -1,13 +1,13 @@
 ﻿using FilmApplication.Models.Actors;
-using System;
+using FilmApplication.Services.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FilmApplication.Services
 {
-    public class ActorService
+    public class ActorService : IActorService
     {
-        private FilmContext context;
+        private readonly FilmContext context;
 
         public ActorService(FilmContext filmContext)
         {
@@ -18,16 +18,16 @@ namespace FilmApplication.Services
         {
             this.context.Actors.Add(new Actor
             {
-                DateOfBirth=model.dateOfBirth,
-                Name=model.Name,
+                DateOfBirth = model.dateOfBirth,
+                Name = model.Name,
             });
             await this.context.SaveChangesAsync();
         }
 
         public async Task Delete(int id)
         {
-            var actor=this.context.Actors.FirstOrDefault(a=>a.Id==id);
-            if (actor!=null)
+            var actor = this.context.Actors.FirstOrDefault(a=>a.Id==id);
+            if (actor != null)
             {
                 this.context.Actors.Remove(actor);
             }
@@ -35,7 +35,7 @@ namespace FilmApplication.Services
         }
 
         public Actor GetActorById(int id)
-            =>this.context.Actors.FirstOrDefault(a=>a.Id==id);
+            => this.context.Actors.FirstOrDefault(a => a.Id == id);
 
         public async Task AddActor(int id,ActorDto model)
         {

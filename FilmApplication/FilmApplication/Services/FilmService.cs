@@ -4,10 +4,11 @@ using FilmApplication.Models.Films;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FilmApplication.Models.QueryObjects;
+using FilmApplication.Services.Interfaces;
 
 namespace FilmApplication.Services
 {
-    public class FilmService
+    public class FilmService : IFilmService
     {
         private FilmContext context;
         public FilmService(FilmContext dbContext)
